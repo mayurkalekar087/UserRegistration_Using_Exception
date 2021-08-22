@@ -26,7 +26,26 @@ namespace UserRegistration_Using_Exception
                         Console.WriteLine("Enter your First Name:");
                         RegexPatterns name = new RegexPatterns();
                         bool result = name.ValidateName(Console.ReadLine());
+                        Console.WriteLine(result);
                         if (result == false)
+                        {
+                            throw new MyException("Must contain characters only. Having first letter capital with minimum 3 characters.\n====================");
+                        }
+                    }
+                    catch (MyException e)
+                    {
+                        Console.WriteLine("====================\nInvalid Input\n====================");
+                        Console.WriteLine(e.Message);
+                    }
+                    break;
+                   case 2:
+                    try
+                    {
+                        Console.WriteLine("Enter your Last Name:");
+                        RegexPatterns lastname = new RegexPatterns();
+                        bool resultlastname = lastname.ValidateLastName(Console.ReadLine());
+                        Console.WriteLine(resultlastname);
+                        if (resultlastname == false)
                         {
                             throw new MyException("Must contain characters only. Having first letter capital with minimum 3 characters.\n====================");
                         }
